@@ -24,7 +24,6 @@ def test_transformer_forward_and_decode():
     assert model(source, target).shape == (2, 3, 40)
     assert greedy_decode(model, source, max_length=5).shape[0] == 2
 
-
 def test_seq2seq_forward_and_decode():
     model = Seq2SeqNMT(30, 40, hidden_size=16, num_layers=1, dropout=0.0)
     source = torch.tensor([[BOS_ID, 5, 6, EOS_ID], [BOS_ID, 7, EOS_ID, PAD_ID]])

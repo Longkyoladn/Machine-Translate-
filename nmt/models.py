@@ -171,4 +171,3 @@ def build_model(name: str, source_vocab_size: int, target_vocab_size: int,
     if name == "seq2seq":
         return Seq2SeqNMT(source_vocab_size, target_vocab_size, **config)
     raise ValueError(f"Model không hợp lệ: {name}")
-

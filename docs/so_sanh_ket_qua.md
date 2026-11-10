@@ -57,4 +57,3 @@ Code chỉ định nghĩa cách mô hình học. Trước khi train, trọng s�
 
 - TensorFlow NMT: <https://github.com/tensorflow/nmt#iwslt-english-vietnamese>
 - Transformer English–Vietnamese: <https://github.com/stefan-it/nmt-en-vi>
-
