@@ -1,20 +1,18 @@
-# Dịch máy Anh - Việt trên IWSLT 2015
+# Dịch máy Anh - Việt với IWSLT 2015
 
-Repo này cài đặt lại hai cách dịch máy để có thể so sánh trên **cùng một bộ dữ liệu**:
+Bài tập cài đặt và so sánh hai mô hình dịch từ tiếng Anh sang tiếng Việt:
 
-1. **Transformer** – theo hướng của notebook `demo_transformer.ipynb`.
-2. **Seq2Seq + Luong Attention** – theo ý tưởng của dự án [tensorflow/nmt](https://github.com/tensorflow/nmt), nhưng viết lại bằng PyTorch hiện đại vì mã gốc dùng TensorFlow 1.x và đã được lưu trữ.
+1. Transformer, dựa trên nội dung của `demo_transformer.ipynb`.
+2. Seq2Seq + Luong Attention, tham khảo từ [tensorflow/nmt](https://github.com/tensorflow/nmt) và viết lại bằng PyTorch.
 
-Mục tiêu là dịch **English → Vietnamese**. Cả hai mô hình dùng chung IWSLT 2015, cùng cách tách dữ liệu, vocabulary, batch và cách tính BLEU.
+Hai mô hình dùng cùng bộ dữ liệu, cách tiền xử lý và cách tính BLEU.
 
-## Chạy nhanh trên Google Colab
-
-Mở một trong hai notebook:
+## Notebook
 
 - `notebooks/01_transformer_colab.ipynb`
 - `notebooks/02_seq2seq_colab.ipynb`
 
-Chọn GPU trong Colab: **Runtime → Change runtime type → T4 GPU**, sau đó chạy lần lượt các ô.
+Các thí nghiệm được chạy với GPU Colab.
 
 ## Chạy bằng dòng lệnh
 
@@ -36,9 +34,7 @@ python -m nmt.compare \
   --output outputs/comparison.json
 ```
 
-Trên PowerShell, thay dấu `\` cuối dòng bằng dấu backtick hoặc viết lệnh trên một dòng.
-
-## Kiểm tra code mà không cần train lâu
+## Kiểm tra nhanh
 
 ```bash
 python -m pytest -q
@@ -46,11 +42,11 @@ python -m nmt.train --model transformer --data-dir data --output-dir outputs/smo
 python -m nmt.train --model seq2seq --data-dir data --output-dir outputs/smoke-seq2seq --epochs 1 --max-train-batches 2 --max-eval-batches 1 --small
 ```
 
-Smoke test chỉ kiểm tra pipeline có chạy; BLEU của nó **không có ý nghĩa**.
+Hai lệnh trên chỉ chạy vài batch để kiểm tra chương trình, không dùng kết quả này để so sánh mô hình.
 
 ## Kết quả so sánh
 
-Xem [docs/so_sanh_ket_qua.md](docs/so_sanh_ket_qua.md). File này nói rõ phần nào đã kiểm tra được, số tham khảo từ nguồn gốc, và bảng kết quả thật cần train để điền.
+Kết quả và nhận xét được ghi tại [docs/so_sanh_ket_qua.md](docs/so_sanh_ket_qua.md).
 
 ## Cấu trúc chính
 
