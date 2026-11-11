@@ -55,7 +55,14 @@ Kết quả validation của lần chạy đã lưu:
 | Transformer | 8.76 | 214.9 giây |
 | Seq2Seq + Luong Attention | 13.82 | 549.6 giây |
 
-Checkpoint Seq2Seq không được giữ lại nên chưa có BLEU `tst2013` và tốc độ sinh câu. Repo không dùng số liệu ước lượng để thay thế hai giá trị này.
+Kết quả test trên 1.243 câu của `tst2013`:
+
+| Mô hình | BLEU | CPU (câu/giây) | GPU (câu/giây) |
+|---|---:|---:|---:|
+| Transformer | 7.82 | 1.50 | 76.21 |
+| Seq2Seq + Luong Attention | 13.38 | 25.99 | 504.87 |
+
+BLEU trên CPU và GPU giống nhau vì dùng cùng checkpoint. GPU chỉ thay đổi tốc độ thực hiện. Phần giải thích và ví dụ dịch nằm trong báo cáo kết quả.
 
 ## Cấu trúc chính
 

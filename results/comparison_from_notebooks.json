@@ -22,14 +22,30 @@
       "final_valid_perplexity": 13.082064303651682,
       "average_epoch_seconds": 549.62,
       "total_training_seconds": 8244.3,
-      "checkpoint_available": false
+      "checkpoint_available": true
     }
   },
   "comparison": {
     "seq2seq_bleu_advantage": 5.06,
     "seq2seq_training_time_ratio": 2.557641000186139,
-    "inference_sentences_per_second": null,
-    "translation_examples": null
+    "test_bleu_advantage": 5.56,
+    "inference_sentences_per_second": {
+      "cpu": {
+        "transformer": 1.5,
+        "seq2seq": 25.99
+      },
+      "gpu": {
+        "transformer": 76.21,
+        "seq2seq": 504.87
+      }
+    },
+    "translation_examples": "outputs/comparison_cpu.json and outputs/comparison_gpu.json"
   },
-  "limitations": "The Seq2Seq checkpoint was not saved, so tst2013 BLEU, inference speed, and paired translation examples could not be recomputed."
+  "test_result": {
+    "split": "tst2013",
+    "sentences": 1243,
+    "transformer_bleu": 7.82,
+    "seq2seq_bleu": 13.38
+  },
+  "limitations": "Inference speed was measured once per device and can vary with hardware and runtime load."
 }

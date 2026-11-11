@@ -1,0 +1,31 @@
+{
+  "split": "tst2013",
+  "sentences": 1243,
+  "batch_size": 64,
+  "decoding": "greedy",
+  "bleu": {
+    "transformer": 7.82,
+    "seq2seq": 13.38,
+    "seq2seq_advantage": 5.56
+  },
+  "cpu_sentences_per_second": {
+    "transformer": 1.5,
+    "seq2seq": 25.99
+  },
+  "gpu_sentences_per_second": {
+    "transformer": 76.21,
+    "seq2seq": 504.87
+  },
+  "gpu_speedup": {
+    "transformer": 50.81,
+    "seq2seq": 19.43
+  },
+  "seq2seq_speed_advantage": {
+    "cpu": 17.33,
+    "gpu": 6.62
+  },
+  "sources": [
+    "outputs/comparison_cpu.json",
+    "outputs/comparison_gpu.json"
+  ]
+}
