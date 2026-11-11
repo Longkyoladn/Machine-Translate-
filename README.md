@@ -48,6 +48,15 @@ Hai lệnh trên chỉ chạy vài batch để kiểm tra chương trình, khôn
 
 Kết quả và nhận xét được ghi tại [docs/so_sanh_ket_qua.md](docs/so_sanh_ket_qua.md).
 
+Kết quả validation của lần chạy đã lưu:
+
+| Mô hình | BLEU tst2012 | Thời gian trung bình/epoch |
+|---|---:|---:|
+| Transformer | 8.76 | 214.9 giây |
+| Seq2Seq + Luong Attention | 13.82 | 549.6 giây |
+
+Checkpoint Seq2Seq không được giữ lại nên chưa có BLEU `tst2013` và tốc độ sinh câu. Repo không dùng số liệu ước lượng để thay thế hai giá trị này.
+
 ## Cấu trúc chính
 
 ```text

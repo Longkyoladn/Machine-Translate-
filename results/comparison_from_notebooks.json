@@ -1,0 +1,35 @@
+{
+  "source": "saved outputs in Colab notebooks",
+  "evaluation_split": "tst2012",
+  "decoding": "greedy",
+  "epochs": 15,
+  "models": {
+    "transformer": {
+      "parameters": 15441979,
+      "bleu": 8.76,
+      "final_train_loss": 2.7313334480769105,
+      "final_valid_loss": 2.853636305088382,
+      "final_valid_perplexity": 17.350759924008884,
+      "average_epoch_seconds": 214.89333333333335,
+      "total_training_seconds": 3223.4,
+      "checkpoint_available": true
+    },
+    "seq2seq": {
+      "parameters": 19388219,
+      "bleu": 13.82,
+      "final_train_loss": 2.2369411060147706,
+      "final_valid_loss": 2.571242154956667,
+      "final_valid_perplexity": 13.082064303651682,
+      "average_epoch_seconds": 549.62,
+      "total_training_seconds": 8244.3,
+      "checkpoint_available": false
+    }
+  },
+  "comparison": {
+    "seq2seq_bleu_advantage": 5.06,
+    "seq2seq_training_time_ratio": 2.557641000186139,
+    "inference_sentences_per_second": null,
+    "translation_examples": null
+  },
+  "limitations": "The Seq2Seq checkpoint was not saved, so tst2013 BLEU, inference speed, and paired translation examples could not be recomputed."
+}
