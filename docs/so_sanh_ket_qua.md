@@ -27,7 +27,7 @@ Số liệu được lấy trực tiếp từ output của hai notebook. Bản t
 
 ## Nhận xét
 
-Trong lần chạy này, Seq2Seq đạt BLEU cao hơn Transformer 5.06 điểm. Valid loss và perplexity của Seq2Seq cũng thấp hơn, cho thấy mô hình khớp tập validation tốt hơn với cấu hình hiện tại.
+Seq2Seq đạt BLEU cao hơn Transformer 5.06 điểm. Valid loss và perplexity của Seq2Seq cũng thấp hơn, cho thấy mô hình khớp tập validation tốt hơn với cấu hình hiện tại.
 
 Đổi lại, Seq2Seq chậm hơn khá nhiều. Trung bình một epoch mất 549.6 giây, gấp khoảng 2.56 lần Transformer. Seq2Seq cũng có nhiều hơn khoảng 3.95 triệu tham số, tương đương 25.6%.
 

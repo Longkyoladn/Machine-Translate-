@@ -1,0 +1,16 @@
+{
+  "device": "cpu",
+  "split": "tst2013",
+  "sentences": 1243,
+  "models": {
+    "transformer": {
+      "bleu": 7.82,
+      "sentences_per_second": 1.5
+    },
+    "seq2seq": {
+      "bleu": 13.38,
+      "sentences_per_second": 25.99
+    }
+  },
+  "full_result": "outputs/comparison_cpu.json"
+}

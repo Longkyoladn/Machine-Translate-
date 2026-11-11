@@ -138,8 +138,34 @@ def greedy_decode(model: nn.Module, source: torch.Tensor, max_length: int = 100)
     finished = torch.zeros(source.size(0), dtype=torch.bool, device=source.device)
 
     if isinstance(model, TransformerNMT):
+        source_padding = source.eq(PAD_ID)
+        source_emb = model.position(model.source_embedding(source) * math.sqrt(model.d_model))
+        memory = model.transformer.encoder(
+            source_emb,
+            src_key_padding_mask=source_padding,
+        )
         for _ in range(max_length - 1):
-            next_token = model(source, generated)[:, -1].argmax(1)
+            target_padding = generated.eq(PAD_ID)
+            target_mask = torch.triu(
+                torch.ones(
+                    generated.size(1),
+                    generated.size(1),
+                    dtype=torch.bool,
+                    device=generated.device,
+                ),
+                diagonal=1,
+            )
+            target_emb = model.position(
+                model.target_embedding(generated) * math.sqrt(model.d_model)
+            )
+            hidden = model.transformer.decoder(
+                target_emb,
+                memory,
+                tgt_mask=target_mask,
+                tgt_key_padding_mask=target_padding,
+                memory_key_padding_mask=source_padding,
+            )
+            next_token = model.output(hidden[:, -1]).argmax(1)
             generated = torch.cat([generated, next_token.unsqueeze(1)], dim=1)
             finished |= next_token.eq(EOS_ID)
             if finished.all():
